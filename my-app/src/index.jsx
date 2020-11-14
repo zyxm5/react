@@ -1,35 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import img1 from './assets/1.jpg';
-import img2 from './assets/2.jpg';
-import img3 from './assets/3.jpg';
+import React from "react";
+import ReactDOM from "react-dom";
+import MyFuncComp from "./MyFuncComp";
+import MyClassComp from './MyClassComp';
 
-const srcs = [img1, img2, img3];
-let index = 0;
-let timer;
+// 函数组件：最终返回一个react元素
+	// 关于属性，作为第一个参数传递
+// 类组件：继承React.Component, 实现render方法，并返回一个react元素
+//  关于属性，作为构造函数的参数进行传递
+
 const container = document.getElementById('root');
-function render(){
-  ReactDOM.render(<img src={srcs[index]} alt=""/>,
-    container
-  );
-}
-
-function start(){
-  stop();
-  timer = setInterval(() => {
-    index = (index + 1) % 3;
-    render();
-  }, 2000);
-}
-start();
-function stop(){
-  clearInterval(timer);
-}
-
-container.onmouseenter = function(){
-  stop();
-}
-container.onmouseleave = function(){
-  start();
-}
+ReactDOM.render(<div>
+	{/* {MyFuncComp()} */}
+	<MyFuncComp name="zy"/>
+	<MyClassComp age={10} fun={() => (<h1>这是我使用函数传递过去的ui</h1>)}/>
+	<MyClassComp age={10} ui={<h2>这是我使用对象传递过去的ui</h2>}/>
+	<MyClassComp age={10}/>
+</div>, container);
