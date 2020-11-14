@@ -1,25 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import img1 from './assets/1.jpg';
+import img2 from './assets/2.jpg';
+import img3 from './assets/3.jpg';
 
-// const num = 1;
-// const obj = {a:1}
-const obj = React.createElement('span', {}, 'hello');
-const arr = [1,false, undefined, null, NaN, 2,34];
-const src = 'https://tse1-mm.cn.bing.net/th/id/OET.137c0b0569bb4609a42d325cbc602506?w=135&h=272&c=7&rs=1&o=5&pid=1.9';
-const inp = '<h3>123</h3>';
-const cls = 'demo';
-const h1 = <>
-  <h1 className={cls} style={{fontSize: "50px", color: "#008c8c"}}>{obj}</h1>
-  <span>{arr}</span>
-  {/* <img src={src} alt=""/> */}
-  <h2 dangerouslySetInnerHTML={{
-    // __html: inp
-  }}></h2>
-</>;
-console.log(h1);
-// 不能修改react元素
-// h1.props.children.pop();
-ReactDOM.render(h1,
-  document.getElementById('root')
-);
+const srcs = [img1, img2, img3];
+let index = 0;
+let timer;
+const container = document.getElementById('root');
+function render(){
+  ReactDOM.render(<img src={srcs[index]} alt=""/>,
+    container
+  );
+}
+
+function start(){
+  stop();
+  timer = setInterval(() => {
+    index = (index + 1) % 3;
+    render();
+  }, 2000);
+}
+start();
+function stop(){
+  clearInterval(timer);
+}
+
+container.onmouseenter = function(){
+  stop();
+}
+container.onmouseleave = function(){
+  start();
+}
