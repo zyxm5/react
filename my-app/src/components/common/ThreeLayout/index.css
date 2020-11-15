@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+}
+.container .main{
+    flex: 1;
+    order: 1;
+}
+.container .left{
+    order: 0;
+}
+.container .right{
+    order: 2;
+}
