@@ -1,0 +1,18 @@
+span{
+    margin: 5px;
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+span:hover,
+button:hover{
+    color: #f40;
+    cursor: pointer;
+}
+span.active{
+    color: #f40;
+    border: none;
+}
+span.disabled{
+    cursor: not-allowed;
+}
