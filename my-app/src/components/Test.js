@@ -1,16 +1,43 @@
 import React, { Component } from 'react'
-import ThreeLayout from './common/ThreeLayout';
+import CheckboxGroup from './common/CheckboxGroup';
+import Select from './common/Select';
 
 export default class Test extends Component {
+    state = {
+        datas: [
+            {
+                name: '篮球',
+                value: 'basketball'
+            },{
+                name: '足球',
+                value: 'football'
+            },
+            {
+                name: '排球',
+                value: 'volleyball'
+            }
+        ],
+        checkeds: ['basketball'],
+        selected: 'basketball'
+    }
+    handleCheckChange = (checkeds, e, val) => {
+        this.setState({
+            checkeds
+        })
+    }
     render() {
         return (
-            <div>
-                <ThreeLayout left={'左侧区域内容'} right={'右侧区域内容'}>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia harum eveniet doloribus temporibus, eaque, nisi ex debitis quisquam assumenda repudiandae architecto. Magnam sunt, distinctio consectetur cum exercitationem asperiores esse?
-                    </p>
-                </ThreeLayout>
-            </div>
+            <>
+                <CheckboxGroup 
+                    datas={this.state.datas}
+                    checkeds={this.state.checkeds}
+                    onChange={this.handleCheckChange}/>
+                <Select 
+                    datas={this.state.datas}
+                    selected={this.state.selected}
+                    onChange={(selected,e) => this.setState({selected})}/>
+                <button onClick={() => console.log(this.state.checkeds)}>输出</button>
+            </>
         )
     }
 }
