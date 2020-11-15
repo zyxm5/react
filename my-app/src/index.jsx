@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import BallList from "./components/BallList";
+import TickControl from './components/TickControl';
 
-ReactDOM.render(<div>
-	<BallList/>
-</div>, document.getElementById('root'));
+ReactDOM.render(<TickControl/>, document.getElementById('root'));
