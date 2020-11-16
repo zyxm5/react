@@ -1,5 +1,5 @@
 import React from 'react'
-import PropsType from 'prop-types';
+import PropTypes from 'prop-types';
 
 export class CompA{}
 export class CompB extends CompA{}
@@ -35,37 +35,37 @@ export default function Validation(props) {
 Validation.defaultProps = {
 }
 Validation.propTypes = {
-    name: PropsType.string.isRequired,
-    age: PropsType.number.isRequired,
-    isMarried: PropsType.bool.isRequired,
-    learn: PropsType.func.isRequired,
-    // loves: PropsType.array.isRequired,
+    name: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
+    isMarried: PropTypes.bool.isRequired,
+    learn: PropTypes.func.isRequired,
+    // loves: PropTypes.array.isRequired,
     // 必须是数字，且元素必须是string类型的
-    loves: PropsType.arrayOf(PropsType.string),
+    loves: PropTypes.arrayOf(PropTypes.string),
     // a必须是一个元素或者react元素
-    a: PropsType.element.isRequired,
+    a: PropTypes.element.isRequired,
     // b必须是字符串或数字或者元素
-    b: PropsType.node.isRequired,
+    b: PropTypes.node.isRequired,
     // c必须是一个元素类型
-    c: PropsType.elementType,
+    c: PropTypes.elementType,
     // 必须是对象
-    d: PropsType.object,
+    d: PropTypes.object,
     // 必须是对象，且属性值必须是number(很少用)
-    e: PropsType.objectOf(PropsType.number).isRequired,
+    e: PropTypes.objectOf(PropTypes.number).isRequired,
     // f必须是对象，且满足下面的格式，不能额外新加属性
-    f: PropsType.exact({
-        name: PropsType.string.isRequired,
-        age: PropsType.number.isRequired
+    f: PropTypes.exact({
+        name: PropTypes.string.isRequired,
+        age: PropTypes.number.isRequired
     }),
     // 必须是['1',2]中的一个
-    g: PropsType.oneOf(['1',2]).isRequired,
+    g: PropTypes.oneOf(['1',2]).isRequired,
     // h类型必须是number或者string
-    h: PropsType.oneOfType([PropsType.number, PropsType.string]).isRequired,
+    h: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     // 原型链上必须有CompA,不能是组件
-    i: PropsType.instanceOf(CompA),
+    i: PropTypes.instanceOf(CompA),
     // 功能和exact类似，但是可以新增属性
-    j: PropsType.shape({
-        name: PropsType.string.isRequired,
-        age: PropsType.number.isRequired
+    j: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        age: PropTypes.number.isRequired
     })
 }

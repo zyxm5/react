@@ -1,5 +1,28 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
+CheckboxGroup.defaultProps = {
+    datas: [
+        {
+            name: '篮球',
+            value: 'basketball'
+        },{
+            name: '足球',
+            value: 'football'
+        },
+        {
+            name: '排球',
+            value: 'volleyball'
+        }
+    ],
+    checkeds: ['basketball']
+}
+
+CheckboxGroup.propTypes = {
+    datas: PropTypes.array,
+    checkeds: PropTypes.array,
+    onChange: PropTypes.func.isRequired
+}
 /**
  * 复选框组
  * @param {*} props 
