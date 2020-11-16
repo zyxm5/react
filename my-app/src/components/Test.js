@@ -1,42 +1,25 @@
 import React, { Component } from 'react'
-import CheckboxGroup from './common/CheckboxGroup';
-import Select from './common/Select';
-
+import Validation, {CompB} from './Validation';
+import Comp from './Comp';
 export default class Test extends Component {
-    state = {
-        datas: [
-            {
-                name: '篮球',
-                value: 'basketball'
-            },{
-                name: '足球',
-                value: 'football'
-            },
-            {
-                name: '排球',
-                value: 'volleyball'
-            }
-        ],
-        checkeds: ['basketball'],
-        selected: 'basketball'
-    }
-    handleCheckChange = (checkeds, e, val) => {
-        this.setState({
-            checkeds
-        })
-    }
     render() {
         return (
             <>
-                <CheckboxGroup 
-                    datas={this.state.datas}
-                    checkeds={this.state.checkeds}
-                    onChange={this.handleCheckChange}/>
-                <Select 
-                    datas={this.state.datas}
-                    selected={this.state.selected}
-                    onChange={(selected,e) => this.setState({selected})}/>
-                <button onClick={() => console.log(this.state.checkeds)}>输出</button>
+                <Validation 
+                    name="zy" 
+                    age={18} 
+                    isMarried={true} 
+                    learn={() => console.log('learn')}
+                    loves={['篮球', '足球']}
+                    a={<h1/>}
+                    b={<span/>}
+                    c={Comp}
+                    e={{a:1}}
+                    f={{name: 'zy', age: 18}}
+                    g={2}
+                    h={1}
+                    i={new CompB()}
+                    j={{name: 'zy', age: 18, sex: '1'}}/>
             </>
         )
     }
